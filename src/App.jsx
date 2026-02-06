@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Github, 
-  Linkedin, 
-  Mail, 
-  ExternalLink, 
-  Code, 
-  Smartphone, 
-  Palette, 
-  Menu, 
+import emailjs from "emailjs-com";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  ExternalLink,
+  Code,
+  Smartphone,
+  Palette,
+  Menu,
   X,
   Send,
   Briefcase,
@@ -102,7 +103,7 @@ const Navbar = () => {
 
 const Hero = () => (
   <section id="home" className="min-h-screen pt-32 pb-20 flex flex-col justify-center items-center text-center relative overflow-visible bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#00D1FF]/10 via-transparent to-transparent">
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
@@ -113,7 +114,7 @@ const Hero = () => (
 
         INBA<span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D1FF] to-[#00A3FF]">SURYA</span>
       </h1>
-      
+
       <div className="flex justify-center gap-6 mb-12">
         {[
           { icon: <Github size={24} />, label: 'Github', href: USER_DATA.socials.github },
@@ -132,7 +133,7 @@ const Hero = () => (
       <p className="text-gray-400 max-w-2xl mx-auto text-base md:text-lg leading-relaxed mb-12 font-medium">
         {USER_DATA.shortBio}
       </p>
-      
+
       <a href="#projects" className="inline-flex items-center gap-3 bg-white text-black px-10 py-5 rounded-xl font-black text-xs uppercase tracking-[0.2em] hover:bg-[#00D1FF] transition-all transform hover:-translate-y-1">
         Explore Projects <ChevronRight size={16} />
       </a>
@@ -144,7 +145,7 @@ const About = () => (
   <section id="about" className="py-24  bg-[#080808]">
     <div className="max-w-7xl mx-auto px-6">
       <div className="grid lg:grid-cols-2 gap-16 items-start">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -152,12 +153,12 @@ const About = () => (
         >
           <div className="relative z-10 w-full aspect-[4/5] rounded-[40px] overflow-hidden border-8 border-white/5 bg-[#111] shadow-2xl">
             <div className="absolute inset-0 bg-[#00D1FF]/5 flex items-center justify-center text-gray-800">
-               <Briefcase size={100} />
+              <Briefcase size={100} />
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
             <div className="absolute bottom-10 left-10">
-               <h3 className="text-3xl font-black text-white leading-none mb-2 tracking-tighter">AI ENGINEER &<br/><span className="text-[#00D1FF]">DEVELOPER</span></h3>
-               <p className="text-gray-500 font-bold uppercase tracking-widest text-[9px]">Based in Chennai, Tamil Nadu</p>
+              <h3 className="text-3xl font-black text-white leading-none mb-2 tracking-tighter">AI ENGINEER &<br /><span className="text-[#00D1FF]">DEVELOPER</span></h3>
+              <p className="text-gray-500 font-bold uppercase tracking-widest text-[9px]">Based in Chennai, Tamil Nadu</p>
             </div>
           </div>
           <div className="absolute -top-6 -left-6 w-32 h-32 bg-[#00D1FF]/20 rounded-full blur-3xl pointer-events-none" />
@@ -165,8 +166,8 @@ const About = () => (
 
         <div>
           <span className="text-[#00D1FF] font-bold tracking-widest uppercase text-[9px] mb-4 block">Professional Background</span>
-          <h2 className="text-5xl font-black text-white mb-12 tracking-tight">RESUME &<br/>MILESTONES</h2>
-          
+          <h2 className="text-5xl font-black text-white mb-12 tracking-tight">RESUME &<br />MILESTONES</h2>
+
           <div className="space-y-8">
             <div className="relative border-l-2 border-white/10 pl-8 space-y-12">
               <div className="relative">
@@ -216,13 +217,13 @@ const Expertise = () => (
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
         {USER_DATA.skills.map((skill, idx) => (
-          <motion.div 
+          <motion.div
             key={idx}
             whileHover={{ y: -5, borderColor: 'rgba(0, 209, 255, 0.3)' }}
             className="bg-[#111] p-10 rounded-[35px] border border-white/5 text-center group transition-all duration-300"
           >
             <div className="text-[#00D1FF] mb-4 flex justify-center opacity-50 group-hover:opacity-100 transition-opacity">
-               <Cpu size={32} />
+              <Cpu size={32} />
             </div>
             <span className="text-gray-500 font-bold text-[9px] uppercase tracking-widest block mb-2">{skill.category}</span>
             <h3 className="text-xl font-black text-white">{skill.name}</h3>
@@ -248,7 +249,7 @@ const Projects = () => (
 
       <div className="grid lg:grid-cols-2 gap-12">
         {USER_DATA.projects.map((project) => (
-          <motion.div 
+          <motion.div
             key={project.id}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -264,15 +265,15 @@ const Projects = () => (
                   {project.desc}
                 </p>
                 <div className="flex gap-4">
-  <a
-    href= "https://github.com/Inbasurya/CRM-HOSPITAL"  // <-- YOUR PROJECT LINK
-    target="_blank"         // opens in new tab
-    rel="noopener noreferrer"
-    className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-black hover:bg-[#00D1FF] transition-all"
-  >
-    <ExternalLink size={20} />
-  </a>
-</div>
+                  <a
+                    href="https://github.com/Inbasurya/CRM-HOSPITAL"  // <-- YOUR PROJECT LINK
+                    target="_blank"         // opens in new tab
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-black hover:bg-[#00D1FF] transition-all"
+                  >
+                    <ExternalLink size={20} />
+                  </a>
+                </div>
 
               </div>
             </div>
@@ -283,64 +284,113 @@ const Projects = () => (
   </section>
 );
 
-const Contact = () => (
-  <section id="contact" className="py-24  bg-[#050505]">
-    <div className="max-w-7xl mx-auto px-6">
-      <div className="grid lg:grid-cols-2 gap-20 items-center">
-        <div>
-          <h2 className="text-[6vw] leading-none font-black text-white mb-10 tracking-tighter">
-            LET'S BUILD <br/><span className="text-[#00D1FF]">TOMORROW.</span>
-          </h2>
-          <p className="text-gray-500 text-lg mb-16 font-medium max-w-sm">
-            Available for AI/ML opportunities and full-stack development collaborations.
-          </p>
-          
-          <div className="space-y-6">
-            <a href={`mailto:${USER_DATA.email}`} className="flex items-center gap-6 group w-fit">
-              <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center text-[#00D1FF] group-hover:shadow-[0_0_20px_#00D1FF] transition-all">
-                <Mail size={24} />
-              </div>
-              <span className="text-white text-xl font-black">{USER_DATA.email}</span>
-            </a>
-            <a href={`tel:${USER_DATA.phone}`} className="flex items-center gap-6 group w-fit">
-              <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center text-[#00D1FF] group-hover:shadow-[0_0_20px_#00D1FF] transition-all">
-                <Phone size={24} />
-              </div>
-              <span className="text-white text-xl font-black">{USER_DATA.phone}</span>
-            </a>
-          </div>
-        </div>
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
 
-        <form className="bg-[#0a0a0a] p-12 rounded-[40px] border border-white/5 shadow-3xl">
-          <div className="space-y-8">
-            {['Name', 'Email'].map((field) => (
-              <div key={field} className="space-y-2">
-                <label className="text-[9px] font-bold text-gray-500 uppercase tracking-widest">{field}</label>
-                <input type={field === 'Email' ? 'email' : 'text'} className="w-full bg-transparent border-b border-white/10 py-3 text-white text-lg font-bold focus:border-[#00D1FF] focus:outline-none transition-all" placeholder={`Your ${field}`} />
-              </div>
-            ))}
-            <div className="space-y-2">
-              <label className="text-[9px] font-bold text-gray-500 uppercase tracking-widest">Message</label>
-              <textarea rows="2" className="w-full bg-transparent border-b border-white/10 py-3 text-white text-lg font-bold focus:border-[#00D1FF] focus:outline-none transition-all resize-none" placeholder="Tell me about your vision"></textarea>
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    emailjs.send(
+      "portfolio_service",
+      "template_o45id24",
+      {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+        time: new Date().toLocaleString()
+      },
+      "uICL2cvobLvXtSnfT"
+    );
+  };
+
+  return (
+    <section id="contact" className="py-24  bg-[#050505]">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <div>
+            <h2 className="text-[6vw] leading-none font-black text-white mb-10 tracking-tighter">
+              LET'S BUILD <br /><span className="text-[#00D1FF]">TOMORROW.</span>
+            </h2>
+            <p className="text-gray-500 text-lg mb-16 font-medium max-w-sm">
+              Available for AI/ML opportunities and full-stack development collaborations.
+            </p>
+
+            <div className="space-y-6">
+              <a href={`mailto:${USER_DATA.email}`} className="flex items-center gap-6 group w-fit">
+                <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center text-[#00D1FF] group-hover:shadow-[0_0_20px_#00D1FF] transition-all">
+                  <Mail size={24} />
+                </div>
+                <span className="text-white text-xl font-black">{USER_DATA.email}</span>
+              </a>
+              <a href={`tel:${USER_DATA.phone}`} className="flex items-center gap-6 group w-fit">
+                <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center text-[#00D1FF] group-hover:shadow-[0_0_20px_#00D1FF] transition-all">
+                  <Phone size={24} />
+                </div>
+                <span className="text-white text-xl font-black">{USER_DATA.phone}</span>
+              </a>
             </div>
-            <button className="w-full bg-[#00D1FF] text-[#050505] py-5 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-white transition-all shadow-xl shadow-[#00D1FF]/10">
-              SEND
-            </button>
           </div>
-        </form>
-      </div>
 
-      <div className="mt-32 pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-        <span className="text-lg font-black text-white tracking-tighter">INBA<span className="text-[#00D1FF]">SURYA.</span></span>
-        <div className="flex gap-10">
-          <a href={USER_DATA.socials.linkedin} className="text-gray-600 hover:text-white transition-all"><Linkedin size={20} /></a>
-          <a href={USER_DATA.socials.github} className="text-gray-600 hover:text-white transition-all"><Github size={20} /></a>
+          <form
+            onSubmit={handleSubmit}
+            className="bg-[#0a0a0a] p-12 rounded-[40px] border border-white/5 shadow-3xl"
+          >
+
+            <div className="space-y-8">
+              {['Name', 'Email'].map((field) => (
+                <div key={field} className="space-y-2">
+                  <label className="text-[9px] font-bold text-gray-500 uppercase tracking-widest">{field}</label>
+                  <input
+  type={field === 'Email' ? 'email' : 'text'}
+  name={field === 'Email' ? 'email' : 'name'}
+  value={field === 'Email' ? formData.email : formData.name}
+  onChange={handleChange}
+  className="w-full bg-transparent border-b border-white/10 py-3 text-white text-lg font-bold focus:border-[#00D1FF] focus:outline-none transition-all"
+  placeholder={`Your ${field}`}
+/>
+
+                </div>
+              ))}
+              <div className="space-y-2">
+                <label className="text-[9px] font-bold text-gray-500 uppercase tracking-widest">Message</label>
+               <textarea
+  rows="2"
+  name="message"
+  value={formData.message}
+  onChange={handleChange}
+  className="w-full bg-transparent border-b border-white/10 py-3 text-white text-lg font-bold focus:border-[#00D1FF] focus:outline-none transition-all resize-none"
+  placeholder="Tell me about your vision"
+/>
+
+              </div>
+              <button className="w-full bg-[#00D1FF] text-[#050505] py-5 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-white transition-all shadow-xl shadow-[#00D1FF]/10">
+                SEND
+              </button>
+            </div>
+          </form>
         </div>
-        <p className="text-gray-700 text-[9px] font-bold uppercase tracking-widest">© 2025 AI Dev Portfolio</p>
+
+        <div className="mt-32 pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+          <span className="text-lg font-black text-white tracking-tighter">INBA<span className="text-[#00D1FF]">SURYA.</span></span>
+          <div className="flex gap-10">
+            <a href={USER_DATA.socials.linkedin} className="text-gray-600 hover:text-white transition-all"><Linkedin size={20} /></a>
+            <a href={USER_DATA.socials.github} className="text-gray-600 hover:text-white transition-all"><Github size={20} /></a>
+          </div>
+          <p className="text-gray-700 text-[9px] font-bold uppercase tracking-widest">© 2025 AI Dev Portfolio</p>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
+
 
 export default function App() {
   return (
